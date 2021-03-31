@@ -42,6 +42,7 @@ def start(update: Update, _: CallbackContext) -> None:
 
 
 def words(update: Update, _: CallbackContext) -> None:
+    logger.info(f'WORDS: Message received from {update.effective_user.mention_markdown_v2()}, :  {update.message.text}')
     first_char = update.message.text[0]
     if first_char.lower() != LAST_CHAR.lower():
         update.message.reply_text(WRONG_MESSAGE)
@@ -58,6 +59,8 @@ def main() -> None:
     dispatcher.add_handler(CommandHandler("start", start))
 
     dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, words))
+
+    logger.info("Starting bot...")
 
     updater.start_polling()
 
