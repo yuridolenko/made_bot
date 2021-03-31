@@ -12,8 +12,6 @@ logger = logging.getLogger(__name__)
 # t.me/made_games_bot.
 # token : 1794408127:AAFn19tXFkCuhn7eaPaa2xqAm7woqai7GF0
 
-updater = Updater(token='1794408127:AAFn19tXFkCuhn7eaPaa2xqAm7woqai7GF0', use_context=True);
-
 LAST_CHAR = 'Р'
 WRONG_MESSAGE = 'Тебе на Р'
 # TODO: complete answers
@@ -38,7 +36,7 @@ ANSWERS = {'а': 'Ахуеть ты пидар', 'б': 'бля, ну ты и п�
 def start(update: Update, _: CallbackContext) -> None:
     user = update.effective_user
     update.message.reply_markdown_v2(
-        f'Здарова, {user.mention_markdown_v2()}\. Играем в слова(или предложения). Начинай.',
+        f'Здарова {user.mention_markdown_v2()}\. Играем в слова\(или предложения\)\. Начинай\.',
         reply_markup=ForceReply(selective=True),
     )
 
