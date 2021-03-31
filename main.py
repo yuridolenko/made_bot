@@ -8,6 +8,7 @@ import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(message)s')
 logger = logging.getLogger(__name__)
 
+# TODO: exclude files from GIT
 # TODO: refactor, create class Bot, use it for different games
 # TODO: move token to config
 # t.me/made_games_bot.
