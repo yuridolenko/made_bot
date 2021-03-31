@@ -1,6 +1,7 @@
 from telegram import Update, ForceReply
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
 
+from decouple import config
 import logging
 
 # Logger
@@ -10,7 +11,6 @@ logger = logging.getLogger(__name__)
 # TODO: refactor, create class Bot, use it for different games
 # TODO: move token to config
 # t.me/made_games_bot.
-# token : 1794408127:AAFn19tXFkCuhn7eaPaa2xqAm7woqai7GF0
 
 LAST_CHAR = 'Р'
 WRONG_MESSAGE = 'Тебе на Р'
@@ -51,7 +51,7 @@ def words(update: Update, _: CallbackContext) -> None:
 
 
 def main() -> None:
-    updater = Updater("1794408127:AAFn19tXFkCuhn7eaPaa2xqAm7woqai7GF0")
+    updater = Updater(config("TOKEN"))
 
     dispatcher = updater.dispatcher
 
